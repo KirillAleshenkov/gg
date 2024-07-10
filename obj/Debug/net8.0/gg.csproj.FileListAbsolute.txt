@@ -1,0 +1,14 @@
+C:\Users\bogda\gg\bin\Debug\net8.0\gg.exe
+C:\Users\bogda\gg\bin\Debug\net8.0\gg.deps.json
+C:\Users\bogda\gg\bin\Debug\net8.0\gg.runtimeconfig.json
+C:\Users\bogda\gg\bin\Debug\net8.0\gg.dll
+C:\Users\bogda\gg\bin\Debug\net8.0\gg.pdb
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.AssemblyInfoInputs.cache
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.AssemblyInfo.cs
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.csproj.CoreCompileInputs.cache
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.dll
+C:\Users\bogda\gg\obj\Debug\net8.0\refint\gg.dll
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.pdb
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.genruntimeconfig.cache
+C:\Users\bogda\gg\obj\Debug\net8.0\ref\gg.dll
