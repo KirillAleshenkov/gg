@@ -12,3 +12,4 @@ C:\Users\bogda\gg\obj\Debug\net8.0\refint\gg.dll
 C:\Users\bogda\gg\obj\Debug\net8.0\gg.pdb
 C:\Users\bogda\gg\obj\Debug\net8.0\gg.genruntimeconfig.cache
 C:\Users\bogda\gg\obj\Debug\net8.0\ref\gg.dll
+C:\Users\bogda\gg\obj\Debug\net8.0\gg.sourcelink.json

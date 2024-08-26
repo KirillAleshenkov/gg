@@ -1,38 +1,88 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 
 class Program
 {
     static void Main()
     {
-        Console.WriteLine("ВВедите первое число");
-        double number1 = Convert.ToDouble(Console.ReadLine());
-        Console.WriteLine("ВВедите второе число");
-        double number2 = Convert.ToDouble(Console.ReadLine());
+        
+        Random random = new Random();
 
-        Console.WriteLine("Выберите операцию");
-        Console.WriteLine("1. Сложение");
-        Console.WriteLine("2. Вычитание");
-        Console.WriteLine("3. Умножение");
-        Console.WriteLine("4. Деление");
+        
+        TextWriterTraceListener listener = new TextWriterTraceListener(File.CreateText("log.txt"));
+        Trace.Listeners.Add(listener);
 
-        string operation = Console.ReadLine();
+        
+        Trace.WriteLine("Программа запущена", "Информация");
 
-        switch(operation){
-            case "1":
-                Console.WriteLine($"Результат сложения: {number1 + number2}");
-                break;
-            case "2":
-                Console.WriteLine($"Результат вычитания: {number1 - number2}");
-                break;
-            case "3":
-                Console.WriteLine($"Результат умножения: {number1 * number2}");
-                break;
-            case "4":
-                Console.WriteLine($"Результат деления: {number1 / number2}");
-                break;
-            default:
-                Console.WriteLine("Не верный выбор операции.");
-                break;
+        char exitChar = 'q';
+
+        while (true)
+        {
+           
+            int a = random.Next(100);
+            int b = random.Next(100);
+
+           
+            string operation = random.Next(4) switch
+            {
+                0 => "+",
+                1 => "-",
+                2 => "*",
+                _ => "/"
+            };
+
+           
+            double result = CalculateResult(a, b, operation);
+
+           
+            Trace.Write($"Пример: {a} {operation} {b} = ", TraceEventType.Information);
+
+           
+            Console.Write("Ответ: ");
+            string answer = Console.ReadLine();
+
+            
+            if (!double.TryParse(answer, out double userAnswer))
+            {
+                
+                Trace.WriteLine("Неверный формат ответа!", TraceEventType.Warning);
+                continue;
+            }
+
+            if (Math.Abs(result - double.Parse(answer)) > 0.0001)
+            {
+                
+                Trace.WriteLine($"Неверный ответ! Правильный ответ: {result}", TraceEventType.Warning);
+            }
+            else
+            {
+                
+                Trace.WriteLine("Правильно!", TraceEventType.Information);
+            }
+
+            
+            if (Console.ReadKey().KeyChar == exitChar)
+            {
+                break; 
+            }
         }
+
+        
+        Trace.WriteLine("Программа завершена", "Информация");
+    }
+
+    private static double CalculateResult(int a, int b, string operation)
+    {
+        switch (operation)
+        {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / (double)b; // Деление может дать дробь
+        }
+
+        throw new ArgumentException("Неизвестная операция!");
     }
 }
